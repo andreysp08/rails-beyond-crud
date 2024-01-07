@@ -2,6 +2,9 @@
   <p style="color: green"><%= notice %></p>
 
   <%= render @restaurant %>
+  <% @restaurant.photos.each do |photo| %>
+    <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+  <% end %>
 
   <hr>
 
