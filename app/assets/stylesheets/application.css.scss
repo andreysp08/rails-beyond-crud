@@ -12,4 +12,41 @@
  *
  *= require_tree .
  *= require_self
+ *= require font-awesome
  */
+ @import "font-awesome";
+
+// .restaurant_address input:placeholder-shown {
+//  border-color: pink;
+//  content: "vimio";
+// }
+// .restaurant_address input::placeholder {
+//  content: "vimio";
+// }
+
+.mm {
+  position: relative;
+  border-radius: 50px;
+  height: 40px;
+}
+
+.restaurant_address, .restaurant_name  {
+  float: right;
+  width: 90%;
+  outline: none;
+}
+.restaurant_address input,
+.restaurant_name input {
+  border: none;
+}
+
+.icon-address,
+.icon-name {
+  font-size: 40px;
+  text-align: center;
+  width: 10%;
+}
+
+.icon-address {
+  // display: none;
+}

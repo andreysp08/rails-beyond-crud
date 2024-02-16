@@ -2,6 +2,17 @@
 
 <h1>Restaurants</h1>
 
+<i class="fa-brands fa-font-awesome"></i><br>
+<i class="fa-solid fa-user-secret"></i><br>
+<i class="fa-regular fa-bell"></i><br>
+
+<%= icon('fa-brands', 'font-awesome')%><br>
+<%= icon('fa-solid', 'user-secret')%><br>
+<%= icon('fa-regular', 'bell')%><br>
+
+<%= fa_icon "camera-retro" %><br>
+
+
 <div id="restaurants">
   <% @restaurants.each do |restaurant| %>
     <%= render restaurant %>

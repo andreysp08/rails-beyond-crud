@@ -4,8 +4,19 @@
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
   <div class="form-inputs">
-    <%= f.input :name %>
-    <%= f.input :address %>
+
+    <div class="input-group mm border mb-3">
+      <i class="fa-solid fa-user-secret icon-name"></i><br>
+      <%= f.input :name, label: false, placeholder: "name" %>
+    </div>
+
+    <div class="mm border px-2 mb-3">
+      <i class="fa-regular fa-envelope icon-address"></i>
+      <%= f.input :address,
+          label: false,
+          input_html: { id: "address-notation", placeholder: "Address" } %>
+    </div>
+
     <%= f.input :rating %>
     <%= f.input :chef_name %>
     <%= f.input :photos, as: :file, input_html: { multiple: true } %>
@@ -15,3 +26,28 @@
     <%= f.button :submit %>
   </div>
 <% end %>
+
+<script>
+  // Selecione o campo de entrada
+  var inputField = document.getElementById("address-notation");
+  var icon_address = document.querySelector(".icon-address");
+  console.log(inputField)
+  console.log(icon_address)
+
+  // Adicione um ouvinte de evento para detectar quando o campo de entrada recebe o foco
+  inputField.addEventListener("focus", function() {
+      // Remova o ícone do placeholder
+      // inputField.setAttribute("placeholder", "");
+      icon_address.classList.add("d-none");
+  });
+
+  // Adicione um ouvinte de evento para detectar quando o campo de entrada perde o foco
+  inputField.addEventListener("blur", function() {
+      // Restaure o ícone do placeholder se o campo de entrada estiver vazio
+      if (inputField.value === "") {
+          // inputField.setAttribute("placeholder", "Seu placeholder aqui");
+          icon_address.classList.remove("d-none");
+      }
+  });
+
+</script>
